@@ -103,7 +103,7 @@ const Hero = () => (
       >
         <div className="relative w-full max-w-md aspect-square rounded-[3rem] overflow-hidden border-4 border-white/5 shadow-2xl">
           <img 
-            src="/public/profile.jpg" 
+            src="/profile.jpg" 
             alt="Sok Thalita Profile" 
             className="w-full h-full object-cover transition-all duration-700" 
           />
