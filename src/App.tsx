@@ -48,7 +48,7 @@ const Navbar = ({ isLightMode, onToggleTheme }: { isLightMode: boolean; onToggle
           {isLightMode ? <Sun size={20} /> : <Moon size={20} />}
         </button>
         <a
-          href="/resume.pdf"
+          href="/Thalita's CV (1).pdf"
           download="SOK Thalita Resume.pdf"
           className="bg-brand-orange hover:bg-brand-orange/90 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-lg shadow-brand-orange/20 flex items-center gap-2"
         >
