@@ -202,7 +202,7 @@ const skillGroups: SkillGroup[] = [
     title: "Design Studio",
     tag: "GROUP DESIGN",
     desc: "Collaborative product design, visual planning, and quick concept iteration.",
-    tools: ["Figma", "Canva", "Wireframes", "UI Kits", "Prototypes"],
+    tools: ["Figma", "Canva", "Wireframes", "Prototypes"],
     accent: "from-fuchsia-500/20 via-transparent to-transparent",
   },
   {
@@ -210,7 +210,7 @@ const skillGroups: SkillGroup[] = [
     title: "Workflow & Cloud",
     tag: "DELIVERY",
     desc: "Project tracking, version control, deployment, and cloud project support.",
-    tools: ["AWS", "GitHub", "Jira", "Vercel", "Deployment"],
+    tools: ["AWS", "GitHub", "Jira", "Vercel", "Netify"],
     accent: "from-emerald-500/20 via-transparent to-transparent",
   },
   {
@@ -218,7 +218,7 @@ const skillGroups: SkillGroup[] = [
     title: "AI Coding Tools",
     tag: "AI TOOLS",
     desc: "Modern AI assistants for coding, research, UI generation, and faster building.",
-    tools: ["Codex", "ChatGPT", "Claude", "Lovable", "Stitch"],
+    tools: ["Codex", "ChatGPT", "Claude", "Lovable", "Stitch", "Notebook LM"],
     accent: "from-violet-500/20 via-transparent to-transparent",
   },
 ];
