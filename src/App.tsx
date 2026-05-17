@@ -186,7 +186,7 @@ const skillGroups: SkillGroup[] = [
     title: "Frontend Frameworks",
     tag: "UI BUILD",
     desc: "Responsive interfaces with clean component structure and polished user flows.",
-    tools: ["HTML", "CSS", "SASS", "ReactJS", "TypeScript"],
+    tools: ["HTML", "CSS", "SASS", "ReactJS"],
     accent: "from-brand-orange/25 via-transparent to-transparent",
   },
   {
