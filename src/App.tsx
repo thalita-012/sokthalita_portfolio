@@ -10,9 +10,9 @@ import {
   Database, 
   Cloud, 
   Palette, 
+  BrainCircuit,
   Mail, 
   MapPin,
-  ChevronRight,
   Download,
   Moon,
   Sun,
@@ -171,106 +171,240 @@ const About = () => (
   </section>
 );
 
-const SkillsCard = ({ icon: Icon, title, desc, tag }: any) => (
-  <div className="p-8 rounded-2xl bg-surface-card border border-white/5 hover:border-brand-orange/30 transition-all flex flex-col items-start group">
-    <div className="flex items-center gap-3 mb-6">
-      <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all">
-        <Icon size={20} />
+type SkillGroup = {
+  icon: typeof Code2;
+  title: string;
+  tag: string;
+  desc: string;
+  tools: string[];
+  accent: string;
+};
+
+const skillGroups: SkillGroup[] = [
+  {
+    icon: Layout,
+    title: "Frontend Frameworks",
+    tag: "UI BUILD",
+    desc: "Responsive interfaces with clean component structure and polished user flows.",
+    tools: ["HTML", "CSS", "SASS", "ReactJS", "TypeScript"],
+    accent: "from-brand-orange/25 via-transparent to-transparent",
+  },
+  {
+    icon: Database,
+    title: "Backend & Data",
+    tag: "LOGIC",
+    desc: "Server-side features, database work, and practical data analysis foundations.",
+    tools: ["JavaScript", "Node.js", "PHP", "MySQL", "Data Analyze"],
+    accent: "from-sky-500/20 via-transparent to-transparent",
+  },
+  {
+    icon: Palette,
+    title: "Design Studio",
+    tag: "GROUP DESIGN",
+    desc: "Collaborative product design, visual planning, and quick concept iteration.",
+    tools: ["Figma", "Canva", "Wireframes", "UI Kits", "Prototypes"],
+    accent: "from-fuchsia-500/20 via-transparent to-transparent",
+  },
+  {
+    icon: Cloud,
+    title: "Workflow & Cloud",
+    tag: "DELIVERY",
+    desc: "Project tracking, version control, deployment, and cloud project support.",
+    tools: ["AWS", "GitHub", "Jira", "Vercel", "Deployment"],
+    accent: "from-emerald-500/20 via-transparent to-transparent",
+  },
+  {
+    icon: BrainCircuit,
+    title: "AI Coding Tools",
+    tag: "AI TOOLS",
+    desc: "Modern AI assistants for coding, research, UI generation, and faster building.",
+    tools: ["Codex", "ChatGPT", "Claude", "Lovable", "Stitch"],
+    accent: "from-violet-500/20 via-transparent to-transparent",
+  },
+];
+
+const SkillsCard = ({ icon: Icon, title, desc, tag, tools, accent }: SkillGroup & { key?: string }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-80px" }}
+    transition={{ duration: 0.5 }}
+    className="relative min-h-[260px] overflow-hidden rounded-2xl bg-surface-card border border-white/5 hover:border-brand-orange/40 transition-all flex flex-col items-start group shadow-xl shadow-black/10"
+  >
+    <div className={`absolute inset-0 bg-gradient-to-br ${accent} opacity-80 group-hover:opacity-100 transition-opacity`} />
+    <div className="absolute -right-8 -top-8 w-32 h-32 rounded-full border border-white/10 group-hover:scale-110 transition-transform duration-500" />
+    <div className="relative z-10 p-8 flex h-full flex-col">
+      <div className="flex items-center gap-3 mb-6">
+        <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all">
+          <Icon size={22} />
+        </div>
+        <span className="text-[10px] font-bold text-white/35 uppercase tracking-widest">{tag}</span>
       </div>
-      <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest">{tag}</span>
+      <h3 className="text-xl font-bold mb-3">{title}</h3>
+      <p className="text-sm text-white/50 leading-relaxed mb-6">{desc}</p>
+      <div className="mt-auto flex flex-wrap gap-2">
+        {tools.map((tool) => (
+          <span key={tool} className="rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-white/60">
+            {tool}
+          </span>
+        ))}
+      </div>
     </div>
-    <h3 className="text-white/60 font-medium mb-1">{title}</h3>
-  </div>
+  </motion.div>
 );
 
 const Competencies = () => (
-  <section id="skills" className="py-32">
+  <section id="skills" className="pt-32 pb-12 overflow-hidden">
     <div className="max-w-7xl mx-auto px-6">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl font-bold mb-4">Core Competencies</h2>
-        <p className="text-white/50 text-sm tracking-wide">Mastering the tools of the trade to build the future of the web.</p>
+      <div className="grid lg:grid-cols-[0.9fr,1.1fr] gap-10 items-end mb-16">
+        <div>
+          <p className="text-sm font-bold text-brand-orange uppercase tracking-[0.2em] mb-4">Core Competencies</p>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-5">Frameworks, design systems, and AI tools.</h2>
+          <p className="text-white/55 text-base leading-relaxed max-w-2xl">
+            A practical toolbox for building modern web products from first idea to live deployment.
+          </p>
+        </div>
       </div>
       
-      <div className="grid md:grid-cols-3 gap-6 mb-20">
-        <SkillsCard icon={Code2} title="HTML, CSS, SASS" tag="UI" />
-        <SkillsCard icon={Code2} title="JavaScript, Node.js, PHP, MySQL" tag="JS" />
-        <SkillsCard icon={Code2} title="TypeScript (OOP), Data Analyze" tag="TS" />
-        <SkillsCard icon={Cloud} title="AWS, GitHub, Jira" tag="Cloud" />
-        <SkillsCard icon={Palette} title="Figma, Canva" tag="Design" />
-      </div>
-
-      <div className="flex justify-center flex-wrap gap-12 opacity-30 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700">
-         <Code2 size={40} />
-         <Cloud size={40} />
-         <Layout size={40} />
-         <Database size={40} />
-         <Palette size={40} />
+      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+        {skillGroups.map((group) => (
+          <SkillsCard key={group.title} {...group} />
+        ))}
       </div>
     </div>
   </section>
 );
 
-const JourneyItem = ({ date, title, subtitle, desc, tags }: any) => (
-  <div className="grid md:grid-cols-[1fr,2fr] gap-12 py-12 border-b border-white/5 last:border-0 group">
-    <div className="flex flex-col">
-      <span className="text-[10px] font-bold text-brand-orange uppercase tracking-[0.2em] mb-4">{date}</span>
-      <h3 className="text-xl font-bold mb-1 group-hover:text-brand-orange transition-colors">{title}</h3>
-      <p className="text-sm text-white/40">{subtitle}</p>
-    </div>
-    <div>
-      <p className="text-white/60 leading-relaxed mb-6">{desc}</p>
-      <div className="flex flex-wrap gap-2">
-        {tags.map((tag: string) => (
-          <span key={tag} className="px-3 py-1 rounded-md bg-white/5 text-[10px] font-bold uppercase tracking-wider text-white/40 border border-white/5">
+type JourneyProject = {
+  date: string;
+  role: string;
+  project: string;
+  category: string;
+  desc: string;
+  tags: string[];
+  repoUrl?: string;
+  liveUrl?: string;
+  highlight: string;
+};
+
+const journeyProjects: JourneyProject[] = [
+  {
+    date: "FEB 2026 - APR 2026",
+    role: "Developer",
+    project: "EliLibrary",
+    category: "Virtual Company 1 Project",
+    desc: "Collaborated with the development team on Laravel, ReactJS, CSS, GitHub, AWS, and Jira. Supported backend structure, content management, deployment, and AWS server handling.",
+    tags: ["Laravel", "ReactJS", "AWS", "Jira"],
+    highlight: "Backend, deployment, team delivery",
+  },
+  {
+    date: "DEC 2025 - JAN 2026",
+    role: "Project Manager & FE Developer",
+    project: "Quiz App",
+    category: "JavaScript Project",
+    desc: "Led task division and frontend development with HTML, CSS, JavaScript, GitHub, and Vercel. Managed website design, content, deployment, and team coordination.",
+    tags: ["HTML", "CSS", "JavaScript", "Vercel"],
+    highlight: "Project planning, UI build, deployment",
+  },
+  {
+    date: "OCT 2025 - NOV 2025",
+    role: "BE & FE Developer",
+    project: "Movie Management System",
+    category: "Algorithms Project",
+    desc: "Built an individual full-stack project using Django, HTML, CSS, JavaScript, and GitHub. Created the design, content structure, and core development workflow.",
+    tags: ["Django", "HTML", "CSS", "JavaScript"],
+    highlight: "Full-stack development, algorithms",
+  },
+  {
+    date: "SEP 2025 - OCT 2025",
+    role: "Individual Developer",
+    project: "DLK CAMBODIA Ecommerce",
+    category: "Web Design Project",
+    desc: "Designed and developed an ecommerce website using HTML, CSS, GitHub, and Vercel. Managed page structure, visual content, and responsive implementation.",
+    tags: ["HTML", "CSS", "GitHub", "Vercel"],
+    highlight: "Responsive ecommerce interface",
+  },
+  {
+    date: "MAY 2025 - JUNE 2025",
+    role: "UI Designer",
+    project: "Elearning Platform",
+    category: "UI Design Project",
+    desc: "Worked with a design team in Figma to create learning screens, organize content, and shape a clear UI direction for an elearning experience.",
+    tags: ["Figma", "UI/UX", "Prototype"],
+    highlight: "Interface design, team collaboration",
+  },
+];
+
+const JourneyItem = ({ date, role, project, category, desc, tags, repoUrl, liveUrl, highlight }: JourneyProject & { key?: string }) => (
+  <motion.article
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-80px" }}
+    transition={{ duration: 0.5 }}
+    className="group relative overflow-hidden rounded-2xl border border-white/5 bg-surface-card p-6 md:p-8 shadow-xl shadow-black/10 transition-all hover:border-brand-orange/35 hover:-translate-y-1"
+  >
+    <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-orange via-brand-orange/40 to-transparent opacity-70" />
+    <div className="relative">
+      <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+        <div className="mb-5 flex flex-wrap items-center gap-3">
+          <span className="rounded-full bg-brand-orange px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white">
+            {date}
+          </span>
+          <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white/40">
+            {category}
+          </span>
+        </div>
+        {(repoUrl || liveUrl) && (
+          <div className="flex flex-wrap gap-3">
+            {repoUrl && (
+              <a href={repoUrl} target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-bold text-white/65 transition-all hover:border-brand-orange/40 hover:text-white">
+                Repository <Github size={16} />
+              </a>
+            )}
+            {liveUrl && (
+              <a href={liveUrl} target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-bold text-white/65 transition-all hover:border-brand-orange/40 hover:text-white">
+                Live Preview <ExternalLink size={16} />
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+
+      <h3 className="text-2xl font-bold tracking-tight group-hover:text-brand-orange transition-colors">{project}</h3>
+      <p className="mt-2 text-sm font-bold uppercase tracking-[0.18em] text-white/35">{role}</p>
+      <p className="mt-5 text-white/60 leading-relaxed">{desc}</p>
+      <div className="mt-6 flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <span key={tag} className="rounded-lg border border-white/5 bg-black/20 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white/45">
             {tag}
           </span>
         ))}
       </div>
+      <div className="mt-7 border-t border-white/5 pt-5">
+        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-orange mb-2">Project Focus</p>
+        <p className="text-sm font-semibold leading-relaxed text-white/60">{highlight}</p>
+      </div>
     </div>
-  </div>
+  </motion.article>
 );
 
 const ProfessionalJourney = () => (
-  <section id="experience" className="py-32 bg-black/30">
+  <section id="experience" className="pt-16 pb-32 bg-black/30">
     <div className="max-w-7xl mx-auto px-6">
-      <h2 className="text-sm font-bold text-white/50 uppercase tracking-[0.2em] mb-12">Professional Journey</h2>
+      <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="text-sm font-bold text-white/50 uppercase tracking-[0.2em] mb-4">Professional Journey</p>
+          <h2 className="text-4xl font-bold tracking-tight">Projects and experience highlights.</h2>
+        </div>
+        <p className="max-w-md text-sm leading-relaxed text-white/45">
+          Clean project cards with optional GitHub and live preview links when the work is ready to share.
+        </p>
+      </div>
       
-      <div className="space-y-4">
-        <JourneyItem 
-          date="FEB 2026 - APR 2026"
-          title="Developer"
-          subtitle="Virtual Company 1 Project - EliLibrary"
-          desc="Worked with development team on Laravel, ReactJS, CSS, GitHub, AWS, Jira. Managed Backend structure, content, deployment, and server handling on AWS."
-          tags={['LARAVEL', 'REACTJS', 'AWS', 'JIRA']}
-        />
-        <JourneyItem 
-          date="DEC 2025 - JAN 2026"
-          title="Project Manager & FE Developer"
-          subtitle="JavaScript Project - Quiz App"
-          desc="Worked with development team on HTML, CSS, JS, GitHub, Vercel. Managed website design, content, deployment, and task division."
-          tags={['HTML', 'CSS', 'JS', 'VERCEL']}
-        />
-        <JourneyItem 
-          date="OCT 2025 - NOV 2025"
-          title="BE & FE Developer"
-          subtitle="Algorithms Project - Movie Management System"
-          desc="Individual project: Worked on Django Framework, HTML, CSS, JS, GitHub. Managed design, content, and development."
-          tags={['DJANGO', 'HTML', 'JS']}
-        />
-        <JourneyItem
-          date="SEP 2025 - OCT 2025"
-          title="Individual Developer"
-          subtitle="Web Design Project - Ecommerce - DLK CAMBODIA"
-          desc="Worked on HTML, CSS, GitHub, Vercel. Managed website design, content, and development."
-          tags={['HTML', 'CSS', 'VERCEL']}
-        />
-        <JourneyItem
-          date="MAY 2025 - JUNE 2025"
-          title="UI Designer"
-          subtitle="UI Design Project - Elearning"
-          desc="Team project: Worked on Figma. Managed website design, content, and UI design."
-          tags={['FIGMA', 'UI/UX']}
-        />
+      <div className="grid gap-6">
+        {journeyProjects.map((project) => (
+          <JourneyItem key={`${project.date}-${project.project}`} {...project} />
+        ))}
       </div>
     </div>
   </section>
