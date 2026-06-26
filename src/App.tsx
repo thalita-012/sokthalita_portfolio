@@ -186,7 +186,7 @@ const skillGroups: SkillGroup[] = [
     title: "Frontend Frameworks",
     tag: "UI BUILD",
     desc: "Responsive interfaces with clean component structure and polished user flows.",
-    tools: ["HTML", "CSS", "SASS", "ReactJS"],
+    tools: ["HTML", "CSS", "JavaScript", "VueJS"],
     accent: "from-brand-orange/25 via-transparent to-transparent",
   },
   {
@@ -194,7 +194,7 @@ const skillGroups: SkillGroup[] = [
     title: "Backend & Data",
     tag: "LOGIC",
     desc: "Server-side features, database work, and practical data analysis foundations.",
-    tools: ["JavaScript", "Node.js", "PHP", "MySQL", "Data Analyze"],
+    tools: ["Laravel","JavaScript", "Node.js", "PHP", "MySQL", "Data Analyze"],
     accent: "from-sky-500/20 via-transparent to-transparent",
   },
   {
@@ -288,6 +288,15 @@ type JourneyProject = {
 };
 
 const journeyProjects: JourneyProject[] = [
+   {
+    date: "MAY 2026 - JUNE 2026",
+    role: "Developer",
+    project: "Waste Management Tracking ",
+    category: "Node JS Project ",
+    desc: "Developed backend applications using Node.js and PostgreSQL | Built RESTful APIs and integrated the Bakong Payment API",
+    tags: ["NodeJS", "PostgresSQL"],
+    highlight: "Backend, deployment, team delivery",
+  },
   {
     date: "FEB 2026 - APR 2026",
     role: "Developer",
