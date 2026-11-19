@@ -10,7 +10,6 @@ import {
   Database, 
   Cloud, 
   Palette, 
-  BrainCircuit,
   Mail, 
   MapPin,
   Download,
@@ -213,14 +212,6 @@ const skillGroups: SkillGroup[] = [
     tools: ["AWS", "GitHub", "Jira", "Vercel", "Netify"],
     accent: "from-emerald-500/20 via-transparent to-transparent",
   },
-  {
-    icon: BrainCircuit,
-    title: "AI Coding Tools",
-    tag: "AI TOOLS",
-    desc: "Modern AI assistants for coding, research, UI generation, and faster building.",
-    tools: ["Codex", "ChatGPT", "Claude", "Lovable", "Stitch", "Notebook LM"],
-    accent: "from-violet-500/20 via-transparent to-transparent",
-  },
 ];
 
 const SkillsCard = ({ icon: Icon, title, desc, tag, tools, accent }: SkillGroup & { key?: string }) => (
@@ -259,7 +250,7 @@ const Competencies = () => (
       <div className="grid lg:grid-cols-[0.9fr,1.1fr] gap-10 items-end mb-16">
         <div>
           <p className="text-sm font-bold text-brand-orange uppercase tracking-[0.2em] mb-4">Core Competencies</p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-5">Frameworks, design systems, and AI tools.</h2>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-5">Frameworks, design systems, and cloud tools.</h2>
           <p className="text-white/55 text-base leading-relaxed max-w-2xl">
             A practical toolbox for building modern web products from first idea to live deployment.
           </p>
@@ -455,7 +446,8 @@ const Contact = () => {
     const email = formData.get("email")?.toString().trim();
     const subject = formData.get("subject")?.toString().trim() || "Portfolio inquiry";
     const message = formData.get("message")?.toString().trim();
-    const body = [
+    const text = [
+      `Subject: ${subject}`,
       `Name: ${name}`,
       email ? `Email: ${email}` : "",
       "",
@@ -464,7 +456,7 @@ const Contact = () => {
       .filter(Boolean)
       .join("\n");
 
-    window.location.href = `mailto:thalita.sok@student.passerellesnumeriques.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(`https://t.me/thalitasok?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
   };
 
   return (
