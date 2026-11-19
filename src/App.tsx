@@ -16,8 +16,6 @@ import {
   Moon,
   Sun,
   Github,
-  Linkedin,
-  Twitter,
   ExternalLink
 } from "lucide-react";
 import { type FormEvent, useEffect, useState } from "react";
@@ -540,15 +538,10 @@ const Footer = () => (
         Sok<span className="text-brand-orange">Thalita</span>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-4 text-[10px] font-bold text-white/30 uppercase tracking-[0.2em]">
-        <p>© 2024 Sok Thalita. Built with Precision.</p>
-        <p>© 2024 Sok Thalita. Built with Precision.</p>
-        <p>© 2024 Sok Thalita. Built with Precision.</p>
-        <p>© 2024 Sok Thalita. Built with Precision.</p>
-      </div>
-      <div className="flex gap-6 text-white/40">
-        <Github size={20} className="hover:text-brand-orange transition-colors cursor-pointer" />
-        <Linkedin size={20} className="hover:text-brand-orange transition-colors cursor-pointer" />
-        <Twitter size={20} className="hover:text-brand-orange transition-colors cursor-pointer" />
+        <p>© 2026 Sok Thalita. Built with Precision.</p>
+        <p>© 2026 Sok Thalita. Built with Precision.</p>
+        <p>© 2026 Sok Thalita. Built with Precision.</p>
+        <p>© 2026 Sok Thalita. Built with Precision.</p>
       </div>
     </div>
   </footer>
