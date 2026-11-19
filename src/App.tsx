@@ -48,7 +48,7 @@ const Navbar = ({ isLightMode, onToggleTheme }: { isLightMode: boolean; onToggle
           {isLightMode ? <Sun size={20} /> : <Moon size={20} />}
         </button>
         <a
-          href="/Thalita's CV (1).pdf"
+          href="/Web Developer.pdf"
           download="SOK Thalita Resume.pdf"
           className="bg-brand-orange hover:bg-brand-orange/90 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-lg shadow-brand-orange/20 flex items-center gap-2"
         >
@@ -183,18 +183,18 @@ type SkillGroup = {
 const skillGroups: SkillGroup[] = [
   {
     icon: Layout,
-    title: "Frontend Frameworks",
+    title: "Frontend & Mobile",
     tag: "UI BUILD",
-    desc: "Responsive interfaces with clean component structure and polished user flows.",
-    tools: ["HTML", "CSS", "JavaScript", "VueJS"],
+    desc: "Responsive web and mobile interfaces with clean component structure and polished user flows.",
+    tools: ["HTML", "CSS", "JavaScript", "VueJS", "Nuxt.js", "ReactJS", "Flutter"],
     accent: "from-brand-orange/25 via-transparent to-transparent",
   },
   {
     icon: Database,
     title: "Backend & Data",
     tag: "LOGIC",
-    desc: "Server-side features, database work, and practical data analysis foundations.",
-    tools: ["Laravel","JavaScript", "Node.js", "PHP", "MySQL", "Data Analyze"],
+    desc: "Server-side features, RESTful APIs, database work, and practical data analysis foundations.",
+    tools: ["Laravel", "NestJS", "Node.js", "PHP", "MySQL", "PostgreSQL", "Data Analyze"],
     accent: "from-sky-500/20 via-transparent to-transparent",
   },
   {
@@ -288,7 +288,34 @@ type JourneyProject = {
 };
 
 const journeyProjects: JourneyProject[] = [
-   {
+  {
+    date: "AUG 2026 - PRESENT",
+    role: "Full Stack Developer Intern",
+    project: "Pick & Play – Music E-Learning & E-Commerce Platform",
+    category: "Somneang Pleng Music School",
+    desc: "Developed web and mobile features using Nuxt.js, NestJS, and Flutter. Built backend APIs and managed MySQL databases. Contributed to online music learning and musical instrument shopping features.",
+    tags: ["Nuxt.js", "NestJS", "Flutter", "MySQL"],
+    highlight: "Web & mobile development, backend APIs, e-learning & e-commerce",
+  },
+  {
+    date: "JULY 2026 - AUG 2026",
+    role: "Developer",
+    project: "Programming Mapping and Advisory Note : NEP Cambodia",
+    category: "School Project",
+    desc: "Developed a web application using Vue.js and Laravel. Managed MySQL database operations and organized application data. Collaborated with team members to develop practical web-based solutions.",
+    tags: ["Vue.js", "Laravel", "MySQL"],
+    highlight: "Web application development, database management, team collaboration",
+  },
+  {
+    date: "JUNE 2026 - JULY 2026",
+    role: "Full Stack Developer",
+    project: "E-commerce Platform",
+    category: "School Project",
+    desc: "Developed a full-stack e-commerce application using Laravel, Vue.js and MySQL. Implemented product management, shopping cart functionality and order management. Worked with database operations and application features to support the user experience.",
+    tags: ["Laravel", "Vue.js", "MySQL"],
+    highlight: "Full-stack e-commerce, product & order management, database operations",
+  },
+  {
     date: "MAY 2026 - JUNE 2026",
     role: "Developer",
     project: "Waste Management Tracking ",
